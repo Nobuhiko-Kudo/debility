@@ -16,10 +16,11 @@
 #
 default: &default
   adapter: postgresql
-    encoding: utf-8 
+  encoding: utf-8 
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
+  pool: 5432
+  timeout: 5000
 
 development:
   <<: *default

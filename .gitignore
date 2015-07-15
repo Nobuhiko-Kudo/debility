@@ -1,6 +1,9 @@
 # Ignore bundler config.
 /.bundle
 
+#Ignore the default Postgresql database
+/db/*.postgres
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
