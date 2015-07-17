@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715121126) do
+ActiveRecord::Schema.define(version: 20150717015309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "game_logs", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "game_id",     null: false
+    t.integer  "result_id",   null: false
+    t.integer  "result_flag"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "games", force: :cascade do |t|
     t.string   "game_name",  null: false
@@ -23,6 +32,21 @@ ActiveRecord::Schema.define(version: 20150715121126) do
   end
 
   add_index "games", ["game_name"], name: "index_games_on_game_name", unique: true, using: :btree
+
+  create_table "image_paths", force: :cascade do |t|
+    t.string   "image_name", null: false
+    t.string   "image_path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pelmanism_results", force: :cascade do |t|
+    t.integer  "cpu_level",  null: false
+    t.string   "user_score"
+    t.string   "cpu_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name",  null: false
