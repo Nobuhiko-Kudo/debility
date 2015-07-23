@@ -1,6 +1,6 @@
 # AngularJSの設定ファイル
 # 依存ライブラリを記述する
-window.app = angular.module('gameFactory', [])
+window.app = angular.module('gameFactory', ['ui.bootstrap'])
 
 # CSRFのトークンを設定するようにする
 window.app.config ($httpProvider) ->
