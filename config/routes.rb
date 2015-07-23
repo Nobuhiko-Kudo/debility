@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :game_logs, only:[:create, :index, :update]
+
+  resources :pelmanism_results, only:[:create, :show, :update]
+
+  resources :games, only:[:index]
+
+  resources :users, only:[:create, :update]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
