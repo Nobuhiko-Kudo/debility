@@ -1,1 +1,93 @@
 @import "bootstrap";
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 130px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  width: 400px;
+  height: 70px;
+  background: url("GameFactory.png") no-repeat;
+}
+
+.navbar {
+  padding: 0;
+  height: 110px;
+
+  .navbar-inner {
+     padding: 0;
+     height: 110px;
+     //navbarの色
+      background-image: linear-gradient(to top, rgb(255, 255, 255), rgba(218, 222, 222, 0.69));
+     //background-image: linear-gradient(to top, #053954, rgb(0, 0, 0));
+     // background-image: linear-gradient(to top, white, rgba(215, 247, 247, 0.58));
+   }
+
+   .nav {
+      margin: 0;
+      display: table;
+      width: 70%;
+
+      li {
+         display: table-cell;
+         float: none;
+         a {
+           font-weight: bold;
+           text-align: center;
+           border-left: 1px solid rgba(255, 255, 255, .75);
+           border-right: 1px solid rgba(0, 0, 0, .1);
+         }
+      }
+   }
+}
