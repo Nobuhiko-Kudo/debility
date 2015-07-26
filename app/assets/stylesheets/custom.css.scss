@@ -26,7 +26,7 @@ textarea {
 }
 
 .main-body  {
-    min-height: 400px;
+    min-height: 350px;
 }
 /* typography */
 
@@ -74,7 +74,7 @@ p {
      height: 110px;
      //navbarの色
      background-color: rgba(154, 49, 49, 0);
-      background-image: linear-gradient(to top, rgb(255, 255, 255), rgba(218, 222, 222, 0.69));
+      background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgba(218, 222, 222, 0.69));
      //background-image: linear-gradient(to top, #053954, rgb(0, 0, 0));
      // background-image: linear-gradient(to top, white, rgba(215, 247, 247, 0.58));
      .container {
@@ -90,6 +90,7 @@ p {
       li {
          display: table-cell;
          float: none;
+         &:hover {color:#ffffff; background:rgba(244, 242, 224, 1);}
          a {
            font-weight: bold;
            text-align: center;
@@ -97,6 +98,13 @@ p {
            border-right: 1px solid rgba(0, 0, 0, .1);
          }
       }
+   }
+
+   .name-area {
+     margin-top: 30px;
+     .btn {
+         margin-top: -10px;
+     }
    }
 }
 
