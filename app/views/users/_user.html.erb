@@ -1,6 +1,14 @@
-<form class="name-area navbar-form navbar-right">
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="名前を登録して下さい" required>
-    </div>
-    <button type="submit" class="btn btn-xs btn-success">登録</button>
-</form>
+<div ng-init="init()">
+  <div ng-show="showRegigstForm">
+    <form class="name-area navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control"  name="user_name" id="user_name"
+                 placeholder="名前を登録して下さい" ng-model="user_name" required>
+        </div>
+        <button type="submit" class="btn btn-xs btn-success" ng-click="registerUserName()">登録</button>
+    </form>
+  </div>
+  <div ng-show="showUserName"  class="name-disp_area">
+    <h5>ようこそ{{registed_user_name}}さん！</h5>
+  </div>
+</div>
