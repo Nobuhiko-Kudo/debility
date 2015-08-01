@@ -1,0 +1,14 @@
+pelmanism_results = []
+
+12.times do |i|
+  pelmanism_result.push cpu_level: 1, cpu_score: 8, user_score: 0 
+end
+
+pelmanism_results.each do |pelmanism_result|
+  PelmanismResult.create (
+    cpu_level: pelmanism_result[:cpu_level],
+    cpu_score: pelmanism_result[:cpu_score],
+    user_score: pelmanism_result[:user_score]
+  )
+end
+
