@@ -1,3 +1,40 @@
 // Place all the styles related to the GameLogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.game-logs-table-head {
+  border-bottom-style: double;
+  text-align: center;
+}
+
+div.game-logs-table-rank {
+  border-bottom-style: groove;
+  text-align: center;
+}
+
+div.game-logs-table-user-name {
+  border-bottom-style: groove;
+  text-align: center;
+}
+
+div.game-logs-table-win-count {
+  border-bottom-style: groove;
+  text-align: center;
+}
+
+div.game-index {
+  border-bottom-style: groove;
+  text-align: center;
+}
+
+div.game-logs-table-rank-last {
+  text-align: center;
+}
+
+div.game-logs-table-user-name-last {
+  text-align: center;
+}
+
+div.game-logs-table-win-count-last {
+  text-align: center;
+}
