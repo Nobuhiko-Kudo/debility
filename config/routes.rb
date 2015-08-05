@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :games, only:[:index]
 
-  resources :users, only:[:create, :update]
+  resources :users, only:[:create, :update, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
