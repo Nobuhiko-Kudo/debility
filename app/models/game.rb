@@ -10,4 +10,10 @@
 
 class Game < ActiveRecord::Base
   has_many :game_logs, dependent: :destroy
+
+  
+  def self.game_list
+   Game.all.pluck(:game_name) 
+  end
+
 end

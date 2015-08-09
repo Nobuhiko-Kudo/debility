@@ -3,6 +3,7 @@ class GameLogsController < ApplicationController
   end
 
   def index
+    @game_list = Game.game_list
   end
 
   def update

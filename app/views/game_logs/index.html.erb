@@ -4,140 +4,43 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-sm-6 col-md-4">
     <div class="panel-group">
       <div class="panel panel-info">
         <div class="panel-heading">game一覧</div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-md-12 game-index">game1</div>
-            <div class="col-md-12 game-index">game2</div>
-            <div class="col-md-12 game-index">game3</div>
+            <% @game_list.each do |game_name| %>
+              <div class="col-sm-12 game-index"><%= game_name %></div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-8">
-    <div class="row">
+  <div class="col-sm-6 col-md-8">
+    <% game_ranking_list.each do |ranking| %>
       <div class="col-md-6">
         <div class="panel-group">
           <div class="panel panel-primary">
-            <div class="panel-heading">game1</div>
+            <div class="panel-heading"><%= ranking[:game_name] %></div>
             <div class="panel-body">
               <div class="row game-logs-table-head">
-                <div class="col-md-3">順位</div>
-                <div class="col-md-6">ユーザ名</div>
-                <div class="col-md-3">勝数</div>
+                <div class="col-xs-3">順位</div>
+                <div class="col-xs-6">ユーザ名</div>
+                <div class="col-xs-3">勝数</div>
               </div>
               <div class="row">
-                <div class="col-md-3 game-logs-table-rank">1</div>
-                <div class="col-md-6 game-logs-table-user-name">user1</div>
-                <div class="col-md-3 game-logs-table-win-count">8</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank">2</div>
-                <div class="col-md-6 game-logs-table-user-name">user2</div>
-                <div class="col-md-3 game-logs-table-win-count">7</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank-last">3</div>
-                <div class="col-md-6 game-logs-table-user-name-last">user3</div>
-                <div class="col-md-3 game-logs-table-win-count-last">6</div>
+                <% ranking[:game_ranking].each do |game_result| %>
+                  <div class="col-xs-3 game-logs-table-rank"><%= game_result[:rank] %></div>
+                  <div class="col-xs-6 game-logs-table-user-name"><%= game_result[:user_name] %></div>
+                  <div class="col-xs-3 game-logs-table-win-count"><%= game_result[:win_count] %></div>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="panel-group">
-          <div class="panel panel-primary">
-            <div class="panel-heading">game2</div>
-            <div class="panel-body">
-              <div class="row game-logs-table-head">
-                <div class="col-md-3">順位</div>
-                <div class="col-md-6">ユーザ名</div>
-                <div class="col-md-3">勝数</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank">1</div>
-                <div class="col-md-6 game-logs-table-user-name">user1</div>
-                <div class="col-md-3 game-logs-table-win-count">100</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank">2</div>
-                <div class="col-md-6 game-logs-table-user-name">user2</div>
-                <div class="col-md-3 game-logs-table-win-count">99</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank-last">3</div>
-                <div class="col-md-6 game-logs-table-user-name-last">user3</div>
-                <div class="col-md-3 game-logs-table-win-count-last">98</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="panel-group">
-          <div class="panel panel-primary">
-            <div class="panel-heading">game3</div>
-            <div class="panel-body">
-              <div class="row game-logs-table-head">
-                <div class="col-md-3">順位</div>
-                <div class="col-md-6">ユーザ名</div>
-                <div class="col-md-3">勝数</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank">1</div>
-                <div class="col-md-6 game-logs-table-user-name">user1</div>
-                <div class="col-md-3 game-logs-table-win-count">1000</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank">2</div>
-                <div class="col-md-6 game-logs-table-user-name">user2</div>
-                <div class="col-md-3 game-logs-table-win-count">999</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank-last">3</div>
-                <div class="col-md-6 game-logs-table-user-name-last">user3</div>
-                <div class="col-md-3 game-logs-table-win-count-last">99</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="panel-group">
-          <div class="panel panel-primary">
-            <div class="panel-heading">game4</div>
-            <div class="panel-body">
-              <div class="row game-logs-table-head">
-                <div class="col-md-3">順位</div>
-                <div class="col-md-6">ユーザ名</div>
-                <div class="col-md-3">勝数</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank">1</div>
-                <div class="col-md-6 game-logs-table-user-name">user1</div>
-                <div class="col-md-3 game-logs-table-win-count">1000</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank">2</div>
-                <div class="col-md-6 game-logs-table-user-name">user2</div>
-                <div class="col-md-3 game-logs-table-win-count">999</div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 game-logs-table-rank-last">3</div>
-                <div class="col-md-6 game-logs-table-user-name-last">user3</div>
-                <div class="col-md-3 game-logs-table-win-count-last">99</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
