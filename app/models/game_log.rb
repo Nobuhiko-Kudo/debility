@@ -13,7 +13,7 @@
 class GameLog < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
-  belongs_to :pelmanism_result, foreign_key: "log_id" 
+  belongs_to :pelmanism_result, foreign_key: "log_id"
 
 
   validates :user_id, presence: true
@@ -21,7 +21,7 @@ class GameLog < ActiveRecord::Base
 
   def self.win_count(game_id)
     GameLog.where(game_id: game_id, result_flag: 1)
-           .group(:user_id)                    
+           .group(:user_id)
            .order('count_user_id desc')
            .count(:user_id)
   end

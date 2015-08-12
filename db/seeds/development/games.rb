@@ -1,7 +1,9 @@
 game_names = []
 
-5.times do |i| 
-  game_names.push "dev_game_#{i}" 
+game_names.push "神経衰弱"
+
+4.times do |i|
+  game_names.push "dev_game_#{i}"
 end
 
 game_names.each do |game_name|

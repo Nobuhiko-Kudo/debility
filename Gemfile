@@ -42,6 +42,9 @@ gem "font-awesome-rails"
 gem 'rails-erd', group: [:development]
 gem 'annotate'
 gem 'kaminari'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

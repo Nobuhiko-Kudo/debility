@@ -70,7 +70,7 @@ p {
 
 .navbar {
 
-  padding: 0;
+  padding-bottom: 130px;
   height: 110px;
 
   .navbar-inner {
@@ -103,6 +103,13 @@ p {
 
    .name-area {
      margin: 25px 25px 0 0;
+   }
+
+   .registed_user_name {
+     font-family:monospace;
+     font-style: oblique;
+     color: #F91783;
+     font-size: 1.2em;
    }
 }
 

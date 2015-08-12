@@ -1,3 +1,29 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.game-image {
+  width: 270px;
+  height: 150px;
+  padding-right: 10px;
+}
+
+.game-button-area{
+  padding: 10px 15px;
+}
+
+.game-title {
+  font-family: Impact;
+  color: #555555;
+  font-size: 1.3em;
+}
+
+.game-info-panel {
+  .panel-heading {
+    border-bottom: 0px;
+    background: linear-gradient(to top, white, rgba(153, 220, 239, 0.36));
+  }
+  .panel-body {
+    min-height: 150px;
+  }
+}
