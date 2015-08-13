@@ -1,6 +1,8 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
-
 /* universal */
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 html {
   overflow-y: scroll;
@@ -75,7 +77,6 @@ p {
 
   .navbar-inner {
      padding: 0;
-     height: 110px;
      //navbarの色
      background-color: rgba(154, 49, 49, 0);
       background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgba(218, 222, 222, 0.69));
@@ -91,9 +92,11 @@ p {
       li {
          display: table-cell;
          float: none;
-         &:hover {color:#ffffff; background:rgba(244, 242, 224, 1);}
          a {
+           &:hover {color:#605757; background:rgba(244, 242, 224, 1);}
+           color: rgba(80, 82, 80, 0.65);
            font-weight: bold;
+           font-style: italic;
            text-align: center;
            border-left: 1px solid rgba(0, 0, 0, .1);
            border-right: 1px solid rgba(0, 0, 0, .1);

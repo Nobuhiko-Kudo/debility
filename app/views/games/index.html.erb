@@ -37,7 +37,8 @@
             </div>
             <div class="row">
               <div class="game-button-area pull-right">
-                <button type="button" class="btn-custom btn btn-default">
+                <button ng-controller="recordModalCtrl" type="button" class="btn-custom btn btn-default" ng-click="getGameRecord(<%= game.id %>)"
+                                    data-toggle="modal" data-target="#recordModal">
                   <i class="fa fa-bar-chart fa-2x"></i>&nbsp;成績</button>
                 <button type="button" class="btn-custom btn btn-default">
                   <i class="fa fa-gamepad fa-2x"></i>&nbsp;開始</button>
@@ -50,3 +51,4 @@
   </div>
   <% end %>
 </div>
+<%= render 'games/recordModal' %>

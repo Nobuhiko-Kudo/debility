@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .game-image {
-  width: 270px;
+  width: 255px;
   height: 150px;
   padding-right: 10px;
 }
@@ -24,6 +24,6 @@
     background: linear-gradient(to top, white, rgba(153, 220, 239, 0.36));
   }
   .panel-body {
-    min-height: 150px;
+    min-height: 125px;
   }
 }
