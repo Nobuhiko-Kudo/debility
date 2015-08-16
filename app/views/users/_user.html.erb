@@ -1,14 +1,17 @@
-<div ng-init="init()">
-  <div ng-show="showRegigstForm">
-    <form class="name-area navbar-form navbar-right">
+<div>
+  <div>
+    <% if (@registed_user_name) %>
+      <div class="name-area navbar-right">
+        ようこそ！<span class="registed_user_name"><%= @registed_user_name %></span>さん
+      </div>
+    <% else %>
+      <%= form_tag('/users', :method => :post, :class => "name-area navbar-form navbar-right") do %>
         <div class="form-group">
           <input type="text" class="form-control"  name="user_name" id="user_name"
                  placeholder="名前を登録して下さい" ng-model="user_name" required>
         </div>
-        <button type="submit" class="btn btn-xs btn-success" ng-click="registerUserName()">登録</button>
-    </form>
-  </div>
-  <div ng-show="showUserName"  class="name-disp_area">
-    <h5>ようこそ{{registed_user_name}}さん！</h5>
+        <button type="submit" class="btn btn-xs btn-success">登録</button>
+      <% end %>
+    <% end %>
   </div>
 </div>
