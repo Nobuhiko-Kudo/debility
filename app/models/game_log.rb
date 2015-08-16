@@ -19,6 +19,7 @@ class GameLog < ActiveRecord::Base
   validates :user_id, presence: true
   validates :game_id, presence: true
 
+  #引数のゲームIDについて勝数の多い順にユーザーIDと勝数を返す
   def self.win_count(game_id)
     GameLog.where(game_id: game_id, result_flag: 1)
            .group(:user_id)                    
@@ -26,22 +27,40 @@ class GameLog < ActiveRecord::Base
            .count(:user_id)
   end
 
+  #ゲームが3ユーザー以上に実施されていれば、「3」
+  #されてなければ、実施したユーザー分の数値を返す
+  def self.top_ranking_count_per_game_size(win_count_list)
+    if win_count_list.size > 2
+      3
+    else
+      win_count_list.size
+    end
+  end
+
+  #rankingのトップ画面にある１レコードを出力
+  def self.top_ranking_tuple(win_count_list, rank)
+      user_id = win_count_list.keys[rank]
+      
+      user_name = User.find(user_id).user_name
+      win_count = win_count_list[user_id]
+
+      record = {
+          rank: rank + 1,
+          user_name: user_name,
+          win_count: win_count
+          }
+  end
+
+  #rankingのトップ画面にある1ゲームのランキング作成
   def self.ranking(game_id)
     ranking = []
     win_count_list = GameLog.win_count(game_id)
 
-    3.times do |rank|
-      user_id = win_count_list.keys[rank]
-      user_name = User.find(user_id).user_name
-      win_count = win_count_list[user_id]
-
-          record = {
-                    rank: rank + 1,
-                    user_name: user_name,
-                    win_count: win_count
-                    }
-          ranking.push record
+    top_ranking_count_per_game_size(win_count_list).times do |rank|
+      record = GameLog.top_ranking_tuple(win_count_list, rank)     
+      ranking.push record
     end
+
     ranking
   end
 end
