@@ -15,48 +15,26 @@
 
             <a href="#" 
                class="list-group-item"
-               ng-class="{'list-group-item-info': 'all' == boolean_active}">全てのgame
+               ng-class="{'list-group-item-info': 'all' == boolean_active}"
+               ng-click="click_active_all()">全てのgame
             </a>
             <a href="#" 
                class="list-group-item" 
                ng-class="{'list-group-item-info': $index == boolean_active}" 
                ng-click="click_active($index)" 
-               ng-repeat="name in game_list.game_names">{{ name }}
+               ng-repeat="game in all_games.game_list">{{ game.game_name }}
             </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-7 col-md-10">
-      <% game_ranking_list.each do |ranking| %>
-        <div class="col-md-6">
-          <div class="panel-group">
-            <div class="panel panel-primary">
-              <div class="panel-heading"><%= ranking[:game_name] %></div>
-              <div class="panel-body">
-                <div class="row game-logs-table-head">
-                  <div class="col-xs-3">順位</div>
-                  <div class="col-xs-6">ユーザ名</div>
-                  <div class="col-xs-3">勝数</div>
-                </div>
-                <div class="row">
-                  <% ranking[:game_ranking].each do |game_result| %>
-                    <div class="col-xs-3 game-logs-table-rank">
-                      <%= game_result[:rank] %>
-                    </div>
-                    <div class="col-xs-6 game-logs-table-user-name">
-                      <%= game_result[:user_name] %>
-                    </div>
-                    <div class="col-xs-3 game-logs-table-win-count">
-                      <%= game_result[:win_count] %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    <div class="col-sm-7 col-md-10" ng-show="'all' == boolean_active">
+      <%= render 'game_logs/game_ranking_all' %>
+    </div>
+    <div ng-repeat="game in all_games.game_list">
+      <div class="col-sm-7 col-md-10" ng-show="$index == boolean_active">
+        <%= render 'game_logs/game_ranking', locals: { id: "{{boolean_active}}" } %>
+      </div>
     </div>
   </div>
 </div>

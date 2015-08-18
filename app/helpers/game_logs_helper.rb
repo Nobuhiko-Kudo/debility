@@ -4,7 +4,7 @@ module GameLogsHelper
     Game.ids.each do |game_id|
       game_ranking = {
         game_name: Game.find(game_id).game_name,
-        game_ranking: GameLog.ranking(game_id)
+        game_ranking: GameLog.top_ranking(game_id)
       }
       @game_ranking_list.push game_ranking
     end

@@ -13,7 +13,7 @@ class Game < ActiveRecord::Base
 
   
   def self.game_list
-   Game.all.pluck(:game_name) 
+   Game.select(:id, :game_name) 
   end
 
 end

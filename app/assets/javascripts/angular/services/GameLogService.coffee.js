@@ -4,7 +4,7 @@ angular.module('gameFactory').factory('GameLog', function($resource, $http){
 
   GameLog = function(){
     function GameLog(errorHandler){
-      this.service =  $resource('/game_logs.json/:id',
+      this.service =  $resource('/game_logs/:id.json',
         { id: this.id },
         { update: { method: 'PUT' },
           query: { method: 'GET', isArray: false }

@@ -52,7 +52,7 @@ class GameLog < ActiveRecord::Base
   end
 
   #rankingのトップ画面にある1ゲームのランキング作成
-  def self.ranking(game_id)
+  def self.top_ranking(game_id)
     ranking = []
     win_count_list = GameLog.win_count(game_id)
 
@@ -62,5 +62,18 @@ class GameLog < ActiveRecord::Base
     end
 
     ranking
+  end
+
+  #game各々に対するrankingを取得
+  def self.game_ranking(game_id)
+    @game_ranking = []
+    win_count = GameLog.win_count(game_id)
+
+    win_count.each_with_index do |count, rank|
+      record = GameLog.top_ranking_tuple(win_count, rank)
+      @game_ranking.push record
+    end 
+
+    @game_ranking
   end
 end

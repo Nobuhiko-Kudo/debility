@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :game_logs, only:[:create, :index, :update]
+  resources :game_logs, only:[:create, :index, :update, :show]
 
   resources :pelmanism_results, only:[:create, :show, :update]
 
