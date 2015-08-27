@@ -13,7 +13,7 @@
 class GameLog < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
-  belongs_to :pelmanism_result, foreign_key: "log_id"
+  has_one :pelmanism_result, foreign_key: "log_id"
 
 
   validates :user_id, presence: true
