@@ -12,6 +12,6 @@
 #
 
 class PelmanismResult < ActiveRecord::Base
-  has_one :game_log, dependent: :destroy
+  belongs_to :game_log, dependent: :destroy
   validates :log_id, presence: true
 end
