@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :pelmanism_results, only:[:create, :show, :update]
 
-  resources :games, only:[:index]
+  resources :games, only:[:index, :show]
 
   resources :users, only:[:create, :update, :show]
 

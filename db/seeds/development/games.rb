@@ -1,8 +1,9 @@
 game_names = []
 
 game_names.push "神経衰弱"
+game_names.push "ルーレット"
 
-4.times do |i|
+3.times do |i|
   game_names.push "dev_game_#{i}"
 end
 
