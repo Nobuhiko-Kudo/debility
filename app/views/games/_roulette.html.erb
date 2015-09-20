@@ -1,9 +1,36 @@
 <div class="roulette row" ng-controller="RouletteCtrl">
-  <div class="col-md-6 roulette">
-    <div class="row">
-      <div class="col-xs-12" id="img"></div>      
-      <div class="col-xs-12" ng-click="click_roulette()">
-        <%= image_tag("roulette.png", id: 'moto') %>
+  <div class="col-xs-4 col-xs-offset-1 roulette">
+    <div ng-if="!stop_roulette">
+      <div id="img"></div> 
+    </div>
+    <div ng-show="stop_roulette" class="cat_stanby">
+      <%= image_tag("cat_stanby.png") %>
+    </div>
+    <div ng-click="click_roulette()">
+      <%= image_tag("roulette2.png", id: 'moto') %>
+    </div>
+  </div>
+  <div class="col-xs-4" ng-if="!stop_roulette">
+    <%= image_tag("wedding.png") %>
+  </div>
+  <div class="col-xs-4 roulette_result" ng-if="stop_roulette" ng-class="{roulette_white: isWhite, roulette_red: ! isWhite}">
+    {{stopColor}}
+  </div>
+  <div class="col-xs-2 panel-group">
+    <div class="panel panel-success" ng-show="isResult()">
+      <div class="panel-heading result-history-head">
+        履歴
+      </div>
+      <div class="panel-body result-history-body">
+        <div ng-repeat="result in resultArray" class="row">
+          <div class="result_count col-xs-8">
+            {{$index + 1}}回目
+          </div>
+          <div class="result-color col-xs-4" 
+               ng-class="{roulette_white: result[1] == '白', roulette_red: result[1] == '赤'}">
+            {{result[1]}}
+          </div>
+        </div>
       </div>
     </div>
   </div>

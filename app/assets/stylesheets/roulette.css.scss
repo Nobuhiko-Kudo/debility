@@ -1,12 +1,12 @@
-div#moto {
-  width:  80%;
-  height: 80%;
-}
-* {
-    margin: 0; padding: 0;
-}
+div.roulette {
+  background-color: #FF9900;
 
-#img {
+  div#moto {
+    width:  80%;
+    height: 80%;
+  }
+
+  #img {
     //position: absolute;
     top: 50%; left: 50%;
     margin-left: 100px;
@@ -14,9 +14,33 @@ div#moto {
     text-align: center;
     width: 110px; height: 110px;
     background-image: url("sprite.png");
-}
+  }
 
-.open {
+  div.cat_stanby {
+    margin-left: 85px;
+  }
+  .open {
     background-position: 0 110px;
-}
+  }
 
+  div.roulette_result {
+    font-size: 20em;
+    font-style: oblique;
+  }
+
+  div.roulette_white {
+    color: white;
+  }
+
+  div.roulette_red {
+    color: red;
+  }
+
+  div.result-history-head {
+    background-color: white;
+  }
+
+  div.result-history-body {
+    background-color: bisque;
+  }
+}
