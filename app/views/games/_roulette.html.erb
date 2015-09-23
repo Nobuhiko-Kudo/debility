@@ -1,13 +1,18 @@
 <div class="roulette row" ng-controller="RouletteCtrl">
   <div class="col-xs-4 col-xs-offset-1 roulette">
-    <div ng-if="!stop_roulette">
-      <div id="img"></div> 
+    <div ng-if="!stop_roulette" class="cat-walk">
+      <div id="img"></div>
     </div>
-    <div ng-show="stop_roulette" class="cat_stanby">
+    <div ng-show="stop_roulette && cat_stanby" class="cat-stanby">
       <%= image_tag("cat_stanby.png") %>
     </div>
-    <div ng-click="click_roulette()">
+    <div ng-if="!stop_roulette || cat_stanby" ng-click="click_roulette()">
       <%= image_tag("roulette2.png", id: 'moto') %>
+    </div>
+    <div ng-show="stop_roulette && !cat_stanby">
+      <div class="kitano">
+        <%= image_tag("cat_with_tie.png", class: "cat-with-tie") %>
+      </div>
     </div>
   </div>
   <div class="col-xs-4" ng-if="!stop_roulette">

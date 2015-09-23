@@ -7,20 +7,39 @@ div.roulette {
   }
 
   #img {
-    //position: absolute;
     top: 50%; left: 50%;
     margin-left: 100px;
     margin-right: -77px;
     text-align: center;
-    width: 110px; height: 110px;
+    width: 110px; height: 8em;
     background-image: url("sprite.png");
   }
 
-  div.cat_stanby {
+  div.cat-walk {
+    .open {
+      background-position: 0 8em;
+    }
+  }
+
+  div.cat-stanby {
     margin-left: 85px;
   }
-  .open {
-    background-position: 0 110px;
+  
+  div.kitano {
+    height: 30em;
+    width: 20em;
+    position: relative;
+    background-image: url("kitano_kyoukai.png");
+  }
+
+  img.cat-with-tie {
+    bottom: 0;
+    left: 8em;
+    position: absolute;
+  }
+
+  img.wedding {
+    height: 20em;
   }
 
   div.roulette_result {
