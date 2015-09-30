@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="gameFactory">
+<html>
 <head>
   <title>Debility</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class= <%= @body_background_color ||= "" %>>
+<body  ng-app="gameFactory" class= <%= @body_background_color ||= "" %>>
   <%= render 'layouts/header' %>
   <div class="main-body container-fluid">
     <%= yield %>
