@@ -30,13 +30,6 @@ scriptTag.src = "https://apis.google.com/js/platform.js";
 scriptTag.async = true;
 document.getElementsByTagName("head")[0].appendChild(scriptTag);
 
-//はてなブックマーク
-var scriptTag = document.createElement("script");
-scriptTag.type = "text/javascript"
-scriptTag.src = "https://b.st-hatena.com/js/bookmark_button.js";
-scriptTag.async = true;
-document.getElementsByTagName("head")[0].appendChild(scriptTag);
-
 //pocket
 (!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js"));
 
