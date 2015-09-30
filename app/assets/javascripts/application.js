@@ -14,7 +14,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jQueryRotate
-//= require turbolinks
 //= require angular.min
 //= require angular-route.min
 //= require angular-resource.min
