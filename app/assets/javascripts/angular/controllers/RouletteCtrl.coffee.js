@@ -16,7 +16,7 @@ window.app.controller('RouletteCtrl', ['$scope', '$timeout', function($scope, $t
   //ルーレットをクリックしたら呼ばれる
   $scope.click_roulette = function(){
   var timeout = 5800,
-      random = Math.round(Math.random() * 360 +0.5),
+      random = Math.round(Math.random() * 6 +0.5),
       animate,
       img,
       classList = [
@@ -68,7 +68,7 @@ window.app.controller('RouletteCtrl', ['$scope', '$timeout', function($scope, $t
           $scope.stopColor = "白";
           $scope.isWhite = true;
         }else if(animate == 3600){
-          $scope.stopColor = "赤";
+          $scope.stopColor = "紅";
           $scope.isWhite = false;
         }
         console.log(random);
