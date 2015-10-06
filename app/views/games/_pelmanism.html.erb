@@ -1,0 +1,12 @@
+<div class="row" ng-controller="pelmanismCtrl">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+    </div>
+  </div>
+  <div class="card-area col-sm-6 col-md-6">
+    <div ng-repeat="card in cards" style="display:inline-block">
+      <div class="card {{card.name}}" ng-class="{ura: !card.open}" ng-hide="card.status" ng-click="flip(this.card)"></div>
+    </div>
+    <div ng-show="compFlg" style="font-size:25px">ﾔｯﾀ━─ﾟ+｡:.ヽ(喜´∀`)ﾉﾟ+｡:.─━ｧｧｯ☆</div>
+ </div>
+</div>
