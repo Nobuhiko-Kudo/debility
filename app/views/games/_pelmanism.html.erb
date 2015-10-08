@@ -1,12 +1,28 @@
 <div class="row" ng-controller="pelmanismCtrl">
   <div class="row">
-    <div class="col-sm-12 col-md-12">
+    <div ng-show="compFlg" style="font-size:25px">ﾔｯﾀ━─ﾟ+｡:.ヽ(喜´∀`)ﾉﾟ+｡:.─━ｧｧｯ☆</div>
+    <div class="result-area col-sm-12 col-md-12">
+      <div class="pea-card-area" ng-repeat="gottenCard in gottenCards">
+        <div><card-pea card-type="{{gottenCard.name}}"></card-pea></div>
+      </div>
     </div>
   </div>
   <div class="card-area col-sm-6 col-md-6">
-    <div ng-repeat="card in cards" style="display:inline-block">
-      <div class="card {{card.name}}" ng-class="{ura: !card.open}" ng-hide="card.status" ng-click="flip(this.card)"></div>
+    <div ng-repeat="card in cards" class="flip-container">
+    	<div class="flipper" ng-hide="card.status" ng-click="turn(this.card)" ng-class="{'turn': card.open}">
+    		<div class="card {{card.name}} back" ></div>
+    		<div class="card ura front"></div>
+    	</div>
     </div>
-    <div ng-show="compFlg" style="font-size:25px">ﾔｯﾀ━─ﾟ+｡:.ヽ(喜´∀`)ﾉﾟ+｡:.─━ｧｧｯ☆</div>
+ </div>
+ <div class="col-sm-6 col-md-6">
+   <div class="row">
+     <div class="counter col-sm-6 col-md-6">
+       {{flipNum}}回目
+     </div>
+     <!-- <div class="timer col-sm-6 col-md-6">
+       {{timer}}秒
+     </div> -->
+   </div>
  </div>
 </div>

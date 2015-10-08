@@ -1,4 +1,15 @@
 window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $timeout ) {
+    $scope.timer = 0;
+    // runTimer();
+    function runTimer() {
+       $scope.timerId = setInterval(function() {
+          $scope.timer++;
+
+       },1000);
+    }
+    function stopTimer() {
+       clearInterval( $scope.timerId );
+    }
     $scope.cards = [
       {name:'java1', img:'java.png', status:false, open:false},
       {name:'java2', img:'java.png', status:false, open:false},
@@ -17,9 +28,10 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
       {name:'haskell1', img:'haskell.png', status:false, open:false},
       {name:'haskell2', img:'haskell.png', status:false, open:false},
     ];
-
+    $scope.gottenCards = [];
     $scope.canFlip = true;
 		$scope.openedCard;
+    $scope.flipNum = 0;
 		$scope.correctNum = 0;
     $scope.compFlg = false;
 		$scope.score = 0;
@@ -29,9 +41,24 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
             return Math.random() - 0.5;
         }
     );
-    $scope.flip = function(card) {
 
+		$scope.judge = function(card,firstCard) {
 
+			if (firstCard.img == card.img) {
+        return true
+			}else {
+        return false
+			}
+		}
+    isComp = function() {
+      for(i = 0; i<$scope.cards.length; i++){
+        if($scope.cards[i].status == false ){
+          return false;
+        }
+      }
+      return true;
+		}
+    $scope.turn = function(card) {
       if($scope.firstCard === card || !$scope.canFlip ){
         return;
       }
@@ -41,6 +68,7 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
 				$scope.firstCard = card;
 			}else {
 				// 二枚目
+        $scope.flipNum++;
         $scope.canFlip = false;
         var result = $scope.judge(card,$scope.firstCard);
         if(result){
@@ -48,8 +76,11 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
           $scope.correctNum++;
           $timeout(function (firstCard) {
             card.status = true;
+            $scope.gottenCards.push({name:card.name});
+// console.log($scope.gottenCards)
             firstCard.status = true;
             if (isComp()){
+              stopTimer();
               $scope.compFlg = true;
             }
             $scope.canFlip = true;
@@ -66,22 +97,6 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
 				$scope.firstCard = 'undefined';
 
 			}
-		}
-		$scope.judge = function(card,firstCard) {
-
-			if (firstCard.img == card.img) {
-        return true
-			}else {
-        return false
-			}
-		}
-    isComp = function() {
-      for(i = 0; i<$scope.cards.length; i++){
-        if($scope.cards[i].status == false ){
-          return false;
-        }
-      }
-      return true;
 		}
 
 }]);
