@@ -28,11 +28,12 @@
       </div>
       <div class="panel-body result-history-body">
         <div ng-repeat="result in resultArray" class="row">
-          <div class="result_count col-xs-8">
+          <div class="result_count col-xs-6">
             {{$index + 1}}回目
           </div>
-          <div class="result-color col-xs-4" 
-               ng-class="{roulette_white: result[1] == '白', roulette_red: result[1] == '赤'}">
+          <div class="result-color col-xs-6 fa fa-flag" 
+               ng-class="{roulette_white: result[1] == '白', 
+               roulette_red: result[1] == '紅'}">
             {{result[1]}}
           </div>
         </div>
