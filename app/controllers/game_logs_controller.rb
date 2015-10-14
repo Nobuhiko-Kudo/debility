@@ -12,4 +12,17 @@ class GameLogsController < ApplicationController
 
   def update
   end
+
+  def record
+    user_id = cookies['user_token'] if cookies['user_token']
+    @game_record = GameLog.vs_cpu(params[:id], 1).reduce([]) do |array, (key, value)| 
+      if key == 1
+        array.push({ :win => value.to_s.to_sym })
+      elsif key == 0
+        array.push({ :lose => value.to_s.to_sym })
+      else
+        array.push({ :draw => value.to_s.to_sym })
+      end
+    end
+  end
 end

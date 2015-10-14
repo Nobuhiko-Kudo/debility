@@ -19,6 +19,13 @@ class GameLog < ActiveRecord::Base
   validates :user_id, presence: true
   validates :game_id, presence: true
 
+  #ログインしているユーザの選択したゲームの勝数
+  def self.vs_cpu(game_id, user_id)
+    GameLog.where(game_id: game_id, user_id: user_id)
+           .group(:result_flag)
+           .count(:user_id)
+  end
+
   #引数のゲームIDについて勝数の多い順にユーザーIDと勝数を返す
   def self.win_count(game_id)
     GameLog.where(game_id: game_id, result_flag: 1)

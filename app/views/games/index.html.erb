@@ -1,56 +1,65 @@
-<div class="row">
-  <% if(flash[:error])%>
-  <div class="col-sm-12 col-md-12">
-    <div class="alert alert-danger" role="alert"><%= flash[:error] %></div>
+<div ng-controller="recordCtrl">
+  <div class="row">
+    <% if(flash[:error])%>
+    <div class="col-sm-12 col-md-12">
+      <div class="alert alert-danger" role="alert"><%= flash[:error] %></div>
+    </div>
+    <% end %>
+    <div class="col-sm-8 col-md-8">
+      <div class="well well-sm"><p>説明説明説明説明説明説明説明説明説明</p></div>
+    </div>
+    <div class="col-sm-4 col-md-4">
+      <span class="pull-right"><%= will_paginate %></span>
+    </div>
   </div>
-  <% end %>
-  <div class="col-sm-8 col-md-8">
-    <div class="well well-sm"><p>説明説明説明説明説明説明説明説明説明</p></div>
-  </div>
-  <div class="col-sm-4 col-md-4">
-    <span class="pull-right"><%= will_paginate %></span>
-  </div>
-</div>
-<div class="row">
-  <% @games.each_with_index do |game, index| %>
-  <div class="col-sm-6 col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="row game-info-panel">
-          <div class="col-sm-6 col-md-6">
-            <div class="panel">
-              <div class="panel-heading"><span class="game-title"><%= game.game_name %></span></div>
-              <div class="panel-body">
-                <p>説明説明説明説明説明説明説明説明説明</p>
-                <% #game.game_info %>
+  <div class="row">
+    <% @games.each_with_index do |game, index| %>
+    <div class="col-sm-6 col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row game-info-panel">
+            <div class="col-sm-6 col-md-6">
+              <div class="panel">
+                <div class="panel-heading"><span class="game-title"><%= game.game_name %></span></div>
+                <div class="panel-body">
+                  <p><%= game.game_info %></p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-6">
-            <div class="row">
-              <% img_name = game.game_name + ".png" %>
-              <% if File.exist?("#{Rails.root}/app/assets/images/"+img_name) %>
-                <%= image_tag(img_name, :class => "game-image pull-right") %>
-              <% else %>
-                <%= image_tag("coming_soon.png", :class => "game-image pull-right") %>
-              <% end %>
-            </div>
-            <div class="row">
-              <div class="game-button-area pull-right">
-                <button ng-controller="recordModalCtrl" type="button" class="btn-custom btn btn-default" ng-click="getGameRecord(<%= game.id %>)"
-                                    data-toggle="modal" data-target="#recordModal">
-                  <i class="fa fa-bar-chart fa-2x"></i>&nbsp;成績</button>
-                <a href=<%= game_path(id: index+1)%>>
-                  <button type="button" class="btn-custom btn btn-default">
-                    <i class="fa fa-gamepad fa-2x"></i>&nbsp;開始</button>
-                </a>
+            <div class="col-sm-6 col-md-6">
+              <div class="row">
+                <% img_name = game.game_name + ".png" %>
+                <% if File.exist?("#{Rails.root}/app/assets/images/"+img_name) %>
+                  <%= image_tag(img_name, :class => "game-image pull-right") %>
+                <% else %>
+                  <%= image_tag("coming_soon.png", :class => "game-image pull-right") %>
+                <% end %>
+              </div>
+              <div class="row">
+                <div class="game-button-area pull-right">
+                  <button type="button"
+                          class="btn-custom btn btn-default"
+                          ng-click="getGameRecord(<%= game.id %>)"
+                          data-toggle="modal"
+                          data-target="#recordModal"
+                          data-whatever="{{data}}">
+                    <i class="fa fa-bar-chart fa-2x"></i>
+                    &nbsp;成績
+                  </button>
+                  <a href=<%= game_path(id: index+1)%>>
+                    <button type="button" class="btn-custom btn btn-default">
+                      <i class="fa fa-gamepad fa-2x"></i>
+                      &nbsp;開始
+                    </button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
-<%= render 'games/recordModal' %>
+<%= render 'games/recordModal' %>    

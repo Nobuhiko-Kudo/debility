@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'games#index'
   
-  resources :game_logs, only:[:create, :index, :update, :show]
+  resources :game_logs, only:[:create, :index, :update, :show] do
+    get 'record', on: :member, as: 'record'
+  end
 
   resources :pelmanism_results, only:[:create, :show, :update]
 

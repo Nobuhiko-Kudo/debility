@@ -1,13 +1,10 @@
-window.app.controller('recordModalCtrl', ['$scope','$http', function($scope, $http) {
+window.app.controller('recordModalCtrl', ['$scope','$modalInstance', 'items', function($scope, $modalInstance, items) {
 
-    $scope.getGameRecord = function(game_id){
-      $http({
-        method : 'GET',
-        url : '/game_logs/getGameRecord/'+game_id
-      }).success(function(data, status) {
-        //成功
-      }).error(function(data, status) {
-        //失敗
-      });
+    $scope.data = items;
+    $scope.ok = function(){
+      $modalInstance.close();
+    }
+    $scope.cancel = function(){
+      $modalInstance.dismiss();
     }
 }]);
