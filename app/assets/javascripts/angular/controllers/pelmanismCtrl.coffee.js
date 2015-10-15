@@ -1,15 +1,5 @@
 window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $timeout ) {
-    $scope.timer = 0;
-    // runTimer();
-    function runTimer() {
-       $scope.timerId = setInterval(function() {
-          $scope.timer++;
 
-       },1000);
-    }
-    function stopTimer() {
-       clearInterval( $scope.timerId );
-    }
     $scope.cards = [
       {name:'java1', img:'java.png', status:false, open:false},
       {name:'java2', img:'java.png', status:false, open:false},
@@ -29,6 +19,7 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
       {name:'haskell2', img:'haskell.png', status:false, open:false},
     ];
     $scope.gottenCards = [];
+    $scope.firstFlip = true;
     $scope.canFlip = true;
 		$scope.openedCard;
     $scope.flipNum = 0;
@@ -41,6 +32,17 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
             return Math.random() - 0.5;
         }
     );
+    $scope.timer = 0;
+    var stop;
+    function runTimer() {
+      stop = $timeout(function() {
+          $scope.timer++;
+          runTimer();
+        }, 1000);
+    }
+    function stopTimer() {
+      $timeout.cancel(stop);
+    }
 
 		$scope.judge = function(card,firstCard) {
 
@@ -59,6 +61,10 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
       return true;
 		}
     $scope.turn = function(card) {
+      if($scope.firstFlip){
+        runTimer();
+      }
+      $scope.firstFlip = false;
       if($scope.firstCard === card || !$scope.canFlip ){
         return;
       }
@@ -77,7 +83,6 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
           $timeout(function (firstCard) {
             card.status = true;
             $scope.gottenCards.push({name:card.name});
-// console.log($scope.gottenCards)
             firstCard.status = true;
             if (isComp()){
               stopTimer();
