@@ -9,6 +9,15 @@
 <body  ng-app="gameFactory" class= <%= @body_background_color ||= "" %>>
   <%= render 'layouts/header' %>
   <div class="main-body container-fluid">
+    <% if alert %>
+    <div class="alert alert-danger" role="alert">
+      会員登録かログインをして下さい
+    </div>
+    <% elsif notice %>
+    <div class="alert alert-success" role="alert">
+      ようこそ。がんばって作ったのでどのゲームも最低一回は遊んでください。。m(_ _)m
+    </div>
+    <% end %>
     <%= yield %>
   </div>
   <%= render 'layouts/footer' %>
