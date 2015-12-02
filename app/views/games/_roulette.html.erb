@@ -1,4 +1,9 @@
 <div class="roulette row" ng-controller="RouletteCtrl">
+  <div class="expect">
+    <div>予想</div>
+    <div class="roulette_white">白：<%= radio_button 'result', 'expect', 'white', { 'ng-model' => "expect" } %></div>
+    <div class="roulette_red">紅：<%= radio_button 'result', 'expect', 'red', { 'ng-model' => "expect" } %></div>
+  </div>
   <div class="col-xs-4 col-xs-offset-1 roulette">
     <div ng-if="!stop_roulette" class="cat-walk">
       <div id="img"></div>
@@ -17,11 +22,13 @@
   </div>
   <div class="col-xs-4" ng-if="!stop_roulette">
     <%= image_tag("wedding.png") %>
+    <div class="cat-word" ng-if="!first">まだだよ☆*: o(≧▽≦)o :*☆</div>        
   </div>
   <div class="col-xs-4 roulette_result" ng-if="stop_roulette" ng-class="{roulette_white: isWhite, roulette_red: ! isWhite}">
     {{stopColor}}
   </div>
   <div class="col-xs-3 panel-group">
+    <%= form_tag %>
     <div class="panel panel-success" ng-show="isResult()">
       <div class="panel-heading result-history-head">
         履歴

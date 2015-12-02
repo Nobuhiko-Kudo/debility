@@ -1,6 +1,14 @@
 div.roulette {
   background-color: #FF9900;
 
+  div.expect {
+    font-size: 1.5em;
+    position: absolute;
+    top: 8em;
+    left: 5em;
+    z-index: 1;
+  }
+
   div#moto {
     width:  80%;
     height: 80%;
@@ -61,5 +69,10 @@ div.roulette {
 
   div.result-history-body {
     background-color: bisque;
+  }
+
+  div.cat-word {
+    font-size: 1.5em;
+    margin-bottom: 1em;
   }
 }
