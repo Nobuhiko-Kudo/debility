@@ -30,6 +30,8 @@ gem 'jquery-turbolinks'
 gem "angular-gem"
 #こっから使いたいアイコンを選んでください＝＞http://fontawesome.io/icons/
 gem "font-awesome-rails"
+
+gem 'devise', '3.5.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

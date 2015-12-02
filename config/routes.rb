@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'games#index'
   
   resources :game_logs, only:[:create, :index, :update, :show] do

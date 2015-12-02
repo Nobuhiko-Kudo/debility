@@ -1,17 +1,16 @@
 <div>
   <div>
-    <% if (@registed_user_name) %>
-      <div class="name-area navbar-right">
-        ようこそ！<span class="registed_user_name"><%= @registed_user_name %></span>さん
-      </div>
+    <div class="name-area navbar-right">
+    <% if user_signed_in? %>
+        ようこそ！<span class="registed_user_name"><%= current_user.user_name %></span>さん
+        <%= link_to "ログアウト", :destroy_user_session, method: :delete %>
+
     <% else %>
-      <%= form_tag('/users', :method => :post, :class => "name-area navbar-form navbar-right") do %>
-        <div class="form-group">
-          <input type="text" class="form-control"  name="user_name" id="user_name"
-                 placeholder="名前を登録して下さい" ng-model="user_name" required>
-        </div>
-        <button type="submit" class="btn btn-xs btn-success">登録</button>
-      <% end %>
+      <li><%= link_to "新規登録", :new_user_registration %></li>
+
+      <!-- 送信先を指定してください -->
+      <li><%= link_to "ログイン", :new_user_session %></li>
     <% end %>
+    </div>
   </div>
 </div>
