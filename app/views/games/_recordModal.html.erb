@@ -8,14 +8,16 @@
   <div class="modal-body">
     <div class="row">
       <div class="col-xs-4" ng-repeat="count in data.game_record">
-        <div ng-repeat="(key, value) in count" ng-if="key == 'win_count'">
-          勝数：{{value}}
-        </div>
-        <div  ng-repeat="(key, value) in count" ng-if="key == 'lose_count'">
-          負数 : {{value}}
-        <div>
-        <div  ng-repeat="(key, value) in count" ng-if="key == 'draw_count'">
-          引き分け（無効）：{{value}}
+        <div ng-repeat="(key, value) in count"
+          <div ng-if="key == 'win_count'">
+            勝数：{{value}}
+          </div>
+          <div ng-if="key == 'lose_count'">
+            負数 : {{value}}
+          <div>
+          <div ng-if="key == 'draw_count'">
+            引き分け（無効）：{{value}}
+          </div>
         </div>
       </div>
     </div>
