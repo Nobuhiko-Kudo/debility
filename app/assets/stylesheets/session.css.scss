@@ -1,0 +1,33 @@
+
+.login-form {
+  width: 19em;
+  height: 17em;
+  background-image: linear-gradient(to bottom, white, rgba(218, 222, 222, 0.69));
+  input[type="email"] {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  input[type="password"] {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  input[type="submit"] {
+    width: 100%;
+  }
+}
+.register-form {
+  width: 19em;
+  color: #605757;
+  background-image: linear-gradient(to bottom, white, rgba(218, 222, 222, 0.69));
+  .signup-btn {
+    margin-top: 1em;
+  }
+  input {
+    width: 100%;
+  }
+  h1{
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0.3em;
+  }
+}
