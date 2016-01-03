@@ -7,14 +7,12 @@ window.app.controller('RouletteCtrl', ['$scope', '$timeout', function($scope, $t
   $scope.resultArray = [];
   //ルーレットの回数
   $scope.count = 0;
+  //正解の回数
+  $scope.right_times = 0;
   //履歴を表示するかの判定
   $scope.isResult = function(){
     return $scope.resultArray.length != 0;
   };
-  //予想を選んでいるかの判定
-//$scope.is_expected = function(){
-  //  return $scope.expect == 'white' || $scope.expect == 'red';
-  //};
 
   var walking;
   $scope.first = true;
@@ -67,6 +65,7 @@ window.app.controller('RouletteCtrl', ['$scope', '$timeout', function($scope, $t
        $timeout(
          //結果を表示して猫をストップさせる処理と履歴にプッシュする
          function(){
+           var right;
            if($scope.count == 9 && $scope.first){
              $scope.first = false;
              $scope.stop_roulette = true;
@@ -79,15 +78,23 @@ window.app.controller('RouletteCtrl', ['$scope', '$timeout', function($scope, $t
              $scope.cat_stanby = false;
              clearTimeout(walking);
              if(animate == 3780){
+               right = $scope.expect == 'white';
+               if(right){
+                 $scope.right_times += 1;
+               }
                $scope.stopColor = "白";
                $scope.isWhite = true;
              }else if(animate == 3600){
+               right = $scope.expect == 'red';
+               if(right){
+                 $scope.right_times += 1;
+               }
                $scope.stopColor = "紅";
                $scope.isWhite = false;
              }
              console.log(random);
              random = 0;
-             $scope.resultArray.push([$scope.count, $scope.stopColor]);
+             $scope.resultArray.push([$scope.count, $scope.stopColor, right]);
              $timeout(
                function(){
                 //猫をスタンバイ状態にする。

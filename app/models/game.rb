@@ -6,6 +6,7 @@
 #  game_name  :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  game_info  :string
 #
 
 class Game < ActiveRecord::Base

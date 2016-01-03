@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   resources :game_logs, only:[:create, :index, :update, :show] do
     get 'record', on: :member, as: 'record'
+    post 'roulette', on: :member, controller: 'game_logs'
   end
 
   resources :pelmanism_results, only:[:create, :show, :update]
