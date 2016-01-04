@@ -1,0 +1,25 @@
+<script type="text/ng-template" id="levelModal.html">
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="ok()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="modal-label">レベル選択</h4>
+</div>
+<div class="modal-body">
+  <div class="row">
+  　<div class="col-xs-12">
+      <form action="{{game_url}}" method="get">
+        レベル<select id="levelSelect" name="levelSelect">
+          <option value="1">１</option>
+          <option value="2">２</option>
+          <option value="3">３</option>
+        </select>
+        <input type="submit" class="btn btn-info" value="決定">
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="ok()">閉じる</button>
+</div>
+</script>

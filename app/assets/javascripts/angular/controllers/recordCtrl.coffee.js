@@ -26,4 +26,17 @@ window.app.controller('recordCtrl', ['$scope','$http','$modal','$log', function(
         console.log("失敗");
       });
   });
+
+  $scope.selectLevel = (function(game_id){
+    var modalInstance = $modal.open({
+      templateUrl: "levelModal.html",
+      controller: "levelModalCtrl",
+      resolve: {
+        game_id: function(){
+          return game_id;
+        }
+      }
+    });
+    modalInstance.result.then();
+  });
 }]);
