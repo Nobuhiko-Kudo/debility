@@ -46,12 +46,15 @@
                     <i class="fa fa-bar-chart fa-2x"></i>
                     &nbsp;成績
                   </button>
-                  <a href=<%= game_path(id: index+1)%>>
-                    <button type="button" class="btn-custom btn btn-default">
-                      <i class="fa fa-gamepad fa-2x"></i>
-                      &nbsp;開始
-                    </button>
-                  </a>
+                  <button type="button"
+                          class="btn-custom btn btn-default"
+                          ng-click="selectLevel(<%= game.id %>)"
+                          data-toggle="modal"
+                          data-target="#"
+                          data-whatever="{{data}}">
+                    <i class="fa fa-gamepad fa-2x"></i>
+                    &nbsp;開始
+                  </button>
                 </div>
               </div>
             </div>
@@ -62,4 +65,5 @@
     <% end %>
   </div>
 </div>
-<%= render 'games/recordModal' %>    
+<%= render 'games/recordModal' %>
+<%= render 'games/levelModal' %>
