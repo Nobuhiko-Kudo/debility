@@ -28,11 +28,12 @@
     {{stopColor}}
   </div>
   <div class="col-xs-3">
-    <%= form_tag controller: "game_logs", action: "roulette" do %>
+    <%= form_tag({controller: "game_logs", action: "roulette"}, {id: "close"}) do %>
       <%= hidden_field :result, :game_times, { 'ng-value' => "count" } %>
       <%= hidden_field :result, :game_id, { 'ng-value' => "id" } %>
       <%= hidden_field :result, :right_count, { 'ng-value' => "right_times" } %>
-      <%= submit_tag "終わり" %>
+      <button type='submit' class='btn btn-primary' ng-disabled='count < 5'>結果を保存</button>
+      <button type='button' class='btn btn-danger' ng-click=getConfirm()>諦める</button>
     <% end %>
     <div class="panel-group">
       <div class="panel panel-success" ng-show="isResult()">

@@ -1,4 +1,4 @@
-window.app.controller('RouletteCtrl', ['$scope', '$timeout', function($scope, $timeout){
+window.app.controller('RouletteCtrl', ['$scope', '$timeout', '$window', function($scope, $timeout, $window){
   //ルーレットが止まっているか
   $scope.stop_roulette = true;
   //猫がスタンバイ状態か
@@ -106,6 +106,15 @@ window.app.controller('RouletteCtrl', ['$scope', '$timeout', function($scope, $t
             }
           }, timeout);
       }
+    }
+  }
+
+  $scope.getConfirm = function(){
+    if($window.confirm('ゲームの結果を保存せずに辞めますか？')){
+      document.getElementById('close').submit();
+      return;
+    }else{
+      return false;
     }
   }
 }]);
