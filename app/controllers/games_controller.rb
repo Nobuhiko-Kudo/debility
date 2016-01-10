@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   end
 
   def show
-   @body_background_color = "roulette_body" if params[:id] == '2' 
+   @body_background_color = "roulette_body" if params[:id] == '2'
   end
 
 end

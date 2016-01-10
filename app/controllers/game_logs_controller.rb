@@ -3,11 +3,21 @@ class GameLogsController < ApplicationController
   def roulette
     id = params[:result][:game_id]
     game_time = game_times
-    right_count = params[:result][:right_count]
     if game_time.to_i >= 5
       ActiveRecord::Base.transaction do
-        game_log = GameLog.create(user_id: current_user.id, game_id: id, result_flag: 1)
-        RouletteResult.create(user_id: current_user.id, game_times: game_time, collect_times: right_count, log_id: game_log.id)
+        if judgment_in_accordance_with_cpu_level[level.to_s].call()
+          game_log = GameLog.create(user_id: current_user.id, game_id: id, result_flag: 1)
+        else
+          game_log = GameLog.create(user_id: current_user.id, game_id: id, result_flag: 0)
+        end
+
+        RouletteResult.create(
+          user_id: current_user.id,
+          game_times: game_time,
+          collect_times: right_count,
+          log_id: game_log.id,
+          cpu_level: cpu_level
+        )
       end
     end
     redirect_to controller: "games", action: "index"
