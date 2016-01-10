@@ -66,7 +66,9 @@ window.app.controller('RouletteCtrl', ['$scope', '$timeout', '$window', function
          //結果を表示して猫をストップさせる処理と履歴にプッシュする
          function(){
            var right;
-           if($scope.count == 9 && $scope.first){
+           // if(Math.round(Math.random() * 6 + 0.5) == random && $scope.first){
+           if(Math.round(Math.random() * 6 + 0.5) == random){
+
              $scope.first = false;
              $scope.stop_roulette = true;
              random = 0;
@@ -92,7 +94,6 @@ window.app.controller('RouletteCtrl', ['$scope', '$timeout', '$window', function
                $scope.stopColor = "紅";
                $scope.isWhite = false;
              }
-             console.log(random);
              random = 0;
              $scope.resultArray.push([$scope.count, $scope.stopColor, right]);
              $timeout(
@@ -102,7 +103,7 @@ window.app.controller('RouletteCtrl', ['$scope', '$timeout', '$window', function
                   $scope.expect = false;
                   $scope.cat_stanby = true;
                 }
-              }, 3000);
+              }, 2000);
             }
           }, timeout);
       }
