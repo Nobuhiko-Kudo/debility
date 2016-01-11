@@ -35,14 +35,10 @@ class GameLogsController < ApplicationController
   end
 
   def record
-    @game_record = GameLog.vs_cpu(params[:id], current_user.id).reduce([]) do |array, (key, value)| 
-      if key == 1
-        array.push({ :win => value.to_s.to_sym })
-      elsif key == 0
-        array.push({ :lose => value.to_s.to_sym })
-      else
-        array.push({ :draw => value.to_s.to_sym })
-      end
+    game_record = GameLog.vs_cpu(params[:id], current_user.id) 
+    @game_record = game_record.to_a.reduce({}) do |result, array|
+      key = result_hash.fetch array[0], :draw_count
+      result.merge({ key => array[1] })
     end
   end
 end

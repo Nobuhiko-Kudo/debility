@@ -26,4 +26,11 @@ module Roulette
       '3' => -> () { right_count.to_f/game_times.to_f >= 1 }
     }
   end
+
+  def result_hash
+    {
+      0 => :lose_count,
+      1 => :win_count,
+    }
+  end
 end
