@@ -1,14 +1,14 @@
 module Roulette
   def game_times
-    params[:result][:game_times]
+    params[:roulette_result][:game_times]
   end
 
-  def right_count
-    params[:result][:right_count]
+  def collect_times
+    params[:roulette_result][:collect_times]
   end
 
   def cpu_level
-    params[:result][:cpu_level]
+    params[:roulette_result][:cpu_level]
   end
 
   def winning_parcentage(game_times, result_times)
@@ -21,9 +21,9 @@ module Roulette
 
   def judgment_in_accordance_with_cpu_level
     {
-      '1' => -> () { right_count.to_f/game_times.to_f >= 0.5 },
-      '2' => -> () { right_count.to_f/game_times.to_f >= 0.8 },
-      '3' => -> () { right_count.to_f/game_times.to_f >= 1 }
+      '1' => -> () { (collect_times.to_f/game_times.to_f).round(1) >= 0.5 },
+      '2' => -> () { (collect_times.to_f/game_times.to_f).round(1) >= 0.8 },
+      '3' => -> () { (collect_times.to_f/game_times.to_f).round(1) >= 1.0 },
     }
   end
 
