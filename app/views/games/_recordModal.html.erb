@@ -6,9 +6,9 @@
     <h4 class="modal-title" id="modal-label">成績</h4>
 </div>
 <div class="modal-body">
-  <div class="row">
-    <div class="col-xs-4" ng-repeat="(key, value) in data.game_record">
-      <div ng-if="key == 'win_count'">
+  <div>
+    <div class="row" ng-repeat="(key, value) in data.game_record">
+      <div class="col-xs-4" ng-if="key == 'win_count'">
         勝数：{{value}}
       </div>
       <div ng-if="key == 'lose_count'">
