@@ -1,9 +1,11 @@
-user_names = []
+users = []
 
 5.times do |i| 
-  user_names.push "dev_user_#{i}"
+  users.push({ user_name:  "dev_user_#{i}", 
+               email: "dev_user_email#{i}@email.co.jp",
+               password:   "p@ssw0rd" })
 end
 
-user_names.each do |user_name|
-  User.create(user_name: user_name) unless User.exists? user_name: user_name
+users.each do |user|
+  User.create(user) unless User.exists? user_name: user[:user_name]
 end
