@@ -12,4 +12,5 @@
 #
 
 class RouletteResult < ActiveRecord::Base
+  belongs_to :game_log, dependent: :destroy, foreign_key: "log_id"
 end

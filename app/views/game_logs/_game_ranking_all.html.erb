@@ -1,27 +1,26 @@
-  <div ng-repeat="game in all_games.games">
-    <div class="col-md-6">
-      <div class="panel-group">
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            {{game.game_name}}
+<div ng-repeat="(game_name, result) in game_result">
+  <div class="col-md-6">
+    <div class="panel-group">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          {{game_name}}(レベル {{level}})
+        </div>
+        <div class="panel-body">
+          <div class="row game-logs-table-head">
+            <div class="col-xs-3">順位</div>
+            <div class="col-xs-6">ユーザ名</div>
+            <div class="col-xs-3">勝数</div>
           </div>
-          <div class="panel-body">
-            <div class="row game-logs-table-head">
-              <div class="col-xs-3">順位</div>
-              <div class="col-xs-6">ユーザ名</div>
-              <div class="col-xs-3">勝数</div>
-            </div>
-            <div ng-repeat="ranking in game.game_result">
-              <div class="row" ng-class-even="'ranking-even'" ng-class-odd="'ranking-odd'">
-                <div class="col-xs-3 game-logs-table-rank">
-                  {{ranking.game_rank}}
-                </div>
-                <div class="col-xs-6 game-logs-table-user-name">
-                  {{ranking.user_name}}
-                </div>
-                <div class="col-xs-3 game-logs-table-win-count">
-                  {{ranking.game_win_count}}
-                </div>
+          <div ng-repeat="(user, win) in result[level]">
+            <div class="row" ng-class-even="'ranking-even'" ng-class-odd="'ranking-odd'">
+              <div class="col-xs-3 game-logs-table-rank">
+                {{$index+1}}
+              </div>
+              <div class="col-xs-6 game-logs-table-user-name">
+                {{user}}
+              </div>
+              <div class="col-xs-3 game-logs-table-win-count">
+                {{win}}
               </div>
             </div>
           </div>
@@ -29,3 +28,4 @@
       </div>
     </div>
   </div>
+</div>

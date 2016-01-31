@@ -1,17 +1,17 @@
 class GameLogsController < ApplicationController
   include Roulette
   def roulette
-    id = Game.find_by_game_name 'ルーレット'
+    id = (Game.find_by_game_name 'ルーレット').id
     game_time = game_times
     if game_time.to_i >= 5
       ActiveRecord::Base.transaction do
         if judgment_in_accordance_with_cpu_level[cpu_level.to_s].call()
-          game_log = GameLog.create(user_id: current_user.id, game_id: id, result_flag: 1)
+          game_log = GameLog.create!(user_id: current_user.id, game_id: id, result_flag: 1)
         else
-          game_log = GameLog.create(user_id: current_user.id, game_id: id, result_flag: 0)
+          game_log = GameLog.create!(user_id: current_user.id, game_id: id, result_flag: 0)
         end
 
-        RouletteResult.create(roulette_permit_params) do |roulette| 
+        RouletteResult.create!(roulette_permit_params) do |roulette| 
           roulette.user_id = current_user.id
           roulette.log_id = game_log.id
         end

@@ -28,6 +28,11 @@
         </div>
       </div>
     </div>
+    <div class="col-sm-7 col-md-10" id="cpu-level-buttons">
+      <button type="button" class="btn btn-primary" ng-click="cpu_level(1)">level 1</button>
+      <button type="button" class="btn btn-info" ng-click="cpu_level(2)">level 2</button>
+      <button type="button" class="btn btn-success" ng-click="cpu_level(3)">level 3</button>
+    </div>
     <div class="col-sm-7 col-md-10" ng-show="'all' == boolean_active">
       <%= render 'game_logs/game_ranking_all' %>
     </div>

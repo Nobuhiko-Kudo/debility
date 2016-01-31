@@ -1,22 +1,23 @@
 <div class="panel-group">
   <div class="panel panel-success">
-    <div class="panel-heading">{{game.game_name}}</div>
+    <div class="panel-heading">{{game_name}}(レベル {{level}})</div>
     <div class="panel-body">
       <div class="row game-logs-table-head">
         <div class="col-xs-3">順位</div>
         <div class="col-xs-6">ユーザ名</div>
         <div class="col-xs-3">勝数</div>
       </div>
-      <div ng-repeat="tuple in game_ranking.game_list">
+      <div ng-repeat="(user, win) in game_result[game_name][level]">
         <div class="row" ng-class-even="'ranking-even'" ng-class-odd="'ranking-odd'">
           <div class="col-xs-3 game-logs-table-rank">
-            {{ tuple.game_rank }}
+            {{ $index+1 }}
           </div>
+          {{tuple}}
           <div class="col-xs-6 game-logs-table-user-name">
-            {{ tuple.user_name }}
+            {{user}}
           </div>
           <div class="col-xs-3 game-logs-table-win-count">
-            {{ tuple.game_win_count }}
+            {{win}}
           </div>
         </div>
       </div>

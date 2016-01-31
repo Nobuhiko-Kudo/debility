@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-table_names = ['users', 'games', 'game_logs', 'pelmanism_results' ]
+table_names = ['users', 'games', 'game_logs', 'pelmanism_results', 'roulette_results' ]
   
 table_names.each do |table_name|  
   path = "#{Rails.root}/db/seeds/#{Rails.env}/#{table_name}.rb"  

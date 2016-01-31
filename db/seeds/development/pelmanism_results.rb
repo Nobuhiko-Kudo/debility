@@ -1,7 +1,7 @@
 pelmanism_results = []
 
 12.times do |i|
-  pelmanism_results.push cpu_level: 1, cpu_score: 0, user_score: 8, log_id: i
+  pelmanism_results.push cpu_level: 1, cpu_score: 0, user_score: 8, log_id: i+1
 end
 pelmanism_results.each do |pelmanism_result|
   PelmanismResult.create(
