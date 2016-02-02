@@ -119,3 +119,17 @@
   font-weight: bold;
   color: rgb(70, 71, 73);
 }
+@keyframes moveimg {
+	0% { left: 0px; top: 0px;}
+	20% { left: 250px; }
+	30% { left: 500px; top: 200px; }
+  40% { left: 250px; top: 300px; }
+  50% { left: 100px; top: 350px; }
+  100% { left: 0px; top: 0px;}
+}
+
+.cat{
+	animation: moveimg 10s infinite;
+	position: absolute;
+  z-index: 1000
+}

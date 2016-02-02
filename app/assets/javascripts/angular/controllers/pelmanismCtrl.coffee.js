@@ -1,38 +1,39 @@
 window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $timeout ) {
-
-    $scope.cards = [
-      {name:'java1', img:'java.png', status:false, open:false},
-      {name:'java2', img:'java.png', status:false, open:false},
-      {name:'ruby1', img:'ruby.png', status:false, open:false},
-      {name:'ruby2', img:'ruby.png', status:false, open:false},
-      {name:'php1', img:'php.png', status:false, open:false},
-      {name:'php2', img:'php.png', status:false, open:false},
-      {name:'js1', img:'js.png', status:false, open:false},
-      {name:'js2', img:'js.png', status:false, open:false},
-      {name:'perl1', img:'perl.png', status:false, open:false},
-      {name:'perl2', img:'perl.png', status:false, open:false},
-      {name:'pyson1', img:'pyson.png', status:false, open:false},
-      {name:'pyson2', img:'pyson.png', status:false, open:false},
-      {name:'html1', img:'html.png', status:false, open:false},
-      {name:'html2', img:'html.png', status:false, open:false},
-      {name:'haskell1', img:'haskell.png', status:false, open:false},
-      {name:'haskell2', img:'haskell.png', status:false, open:false},
-    ];
-    $scope.gottenCards = [];
-    $scope.firstFlip = true;
-    $scope.canFlip = true;
-		$scope.openedCard;
-    $scope.flipNum = 0;
-		$scope.correctNum = 0;
-    $scope.compFlg = false;
-		$scope.score = 0;
-    $scope.firstCard = 'undefined';
-    $scope.cards.sort(
-        function() {
-            return Math.random() - 0.5;
-        }
-    );
-    $scope.timer = 0;
+    $scope.init = function() {
+      $scope.cards = [
+        {name:'java1', img:'java.png', status:false, open:false},
+        {name:'java2', img:'java.png', status:false, open:false},
+        {name:'ruby1', img:'ruby.png', status:false, open:false},
+        {name:'ruby2', img:'ruby.png', status:false, open:false},
+        {name:'php1', img:'php.png', status:false, open:false},
+        {name:'php2', img:'php.png', status:false, open:false},
+        {name:'js1', img:'js.png', status:false, open:false},
+        {name:'js2', img:'js.png', status:false, open:false},
+        {name:'perl1', img:'perl.png', status:false, open:false},
+        {name:'perl2', img:'perl.png', status:false, open:false},
+        {name:'pyson1', img:'pyson.png', status:false, open:false},
+        {name:'pyson2', img:'pyson.png', status:false, open:false},
+        {name:'html1', img:'html.png', status:false, open:false},
+        {name:'html2', img:'html.png', status:false, open:false},
+        {name:'haskell1', img:'haskell.png', status:false, open:false},
+        {name:'haskell2', img:'haskell.png', status:false, open:false},
+      ];
+      $scope.gottenCards = [];
+      $scope.firstFlip = true;
+      $scope.canFlip = true;
+  		$scope.openedCard;
+      $scope.flipNum = 0;
+  		$scope.correctNum = 0;
+      $scope.compFlg = false;
+  		$scope.score = 0;
+      $scope.firstCard = 'undefined';
+      $scope.cards.sort(
+          function() {
+              return Math.random() - 0.5;
+          }
+      );
+      $scope.timer = 0;
+    }
     var stop;
     function runTimer() {
       stop = $timeout(function() {
@@ -103,5 +104,17 @@ window.app.controller('pelmanismCtrl', ['$scope','$timeout', function($scope, $t
 
 			}
 		}
+    $scope.quit = function() {
+      if(window.confirm("ゲームをやめてもよろしいですか？")){
+        location.href = "/games";
+      }
+    }
+    $scope.cloneCat = function() {
+      if($(".cat").length < 3){
+        $(".cat").clone(true).insertAfter(".cat");
+      }
+    }
+
+    $scope.init();
 
 }]);

@@ -8,6 +8,7 @@
     </div>
   </div>
   <div class="card-area col-sm-6 col-md-6">
+    <img src="/img/cat_walking.gif" class="cat" ng-click="cloneCat()">
     <div ng-repeat="card in cards" class="flip-container">
     	<div class="flipper" ng-hide="card.status" ng-click="turn(this.card)" ng-class="{'turn': card.open}">
     		<div class="card {{card.name}} back" ></div>
@@ -23,6 +24,18 @@
      <div class="timer col-sm-6 col-md-6">
        {{timer}}秒
      </div>
+   </div>
+   <div class="row" style="height:415px; position:relative;">
+     <button type="button" ng-click="reset()"
+             class="btn-lg btn-warning" style="position:absolute; bottom:10px; right:170px">
+       <i class="fa fa-refresh fa-2x"></i>
+       &nbsp;リセット
+     </button>
+     <button type="button" ng-click="quit()"
+             class="btn-lg btn-danger" style="position:absolute; bottom:10px; right:10px">
+       <i class="fa fa-exclamation-triangle  fa-2x"></i>
+       &nbsp;やめる
+     </button>
    </div>
  </div>
 </div>
